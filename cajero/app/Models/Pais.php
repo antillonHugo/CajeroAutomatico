@@ -9,6 +9,8 @@ class Pais extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $primaryKey = 'cod_pais';
 
     protected $table = 'paises';

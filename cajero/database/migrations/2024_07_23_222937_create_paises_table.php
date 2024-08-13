@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('paises', function (Blueprint $table) {
             $table->id('cod_pais');
-            $table->string('pais',25);
+            $table->string('pais',50);
         });
     }
 
