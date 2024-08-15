@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\URL;
 // URL::forceScheme('https');
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('home.index');
 })->name('home');
 
 
