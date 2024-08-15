@@ -17,7 +17,7 @@
 
 <body>
 
-    <header>
+    <header class="mb-3 pb-5">
         <nav class="navbar navbar-expand-lg shadow fixed-top bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('home') }}">
@@ -43,7 +43,7 @@
             </div>
         </nav>
     </header>
-    <main class="mt-5 pt-5">
+    <main>
         @yield('content')
     </main>
 
