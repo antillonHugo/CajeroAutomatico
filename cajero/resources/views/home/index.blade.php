@@ -68,54 +68,11 @@
                 <div class="col-12">
                     <h2 class="p-4">Cuentas y Depósitos</h2>
                 </div>
-
-                {{-- <div class="col-12 my-3 shadow rounded p-0">
-
-                    <div class="d-flex flex-column flex-lg-row-reverse border border-danger">
-                        <div class="flex-grow-1">
-                            <img src="https://media.istockphoto.com/id/1433388112/es/foto/concepto-de-financiaci%C3%B3n-de-banca-de-inversi%C3%B3n-de-ahorro-pila-de-monedas-con-alcanc%C3%ADa-sobre-la.jpg?s=1024x1024&w=is&k=20&c=3_WO4jp77JgRGBsQMDyi6NCl1nr0q2BEO7xF29p2Bp0="
-                                class="img-fluid rounded" alt="...">
-                        </div>
-                        <div class="align-self-center flex-grow-1">
-                            <h5 class="fw-bold fs-3">Cuenta Corriente</h5>
-                            <p class="">permite administrar tus fondos de
-                                manera eficiente. Con ella, puedes
-                                realizar pagos, transferencias y acceder a tu dinero fácilmente. ¡Descubre la
-                                comodidad
-                                y
-                                flexibilidad que ofrece esta cuenta bancaria!”
-                            </p>
-                        </div>
-                    </div>
-
-                </div> --}}
-
-                {{-- <div class="col-12 my-3 shadow rounded p-0">
-
-                    <div class="d-flex flex-column flex-lg-row-reverse border border-danger">
-                        <div class="flex-grow-1">
-                            <img src="https://images.unsplash.com/photo-1607697987724-fc9f8b225223?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                class="img-fluid rounded" alt="...">
-                        </div>
-                        <div class="align-self-center flex-grow-1">
-                            <h5 class="fw-bold fs-3">Cuenta Corriente</h5>
-                            <p class="">permite administrar tus fondos de
-                                manera eficiente. Con ella, puedes
-                                realizar pagos, transferencias y acceder a tu dinero fácilmente. ¡Descubre la
-                                comodidad
-                                y
-                                flexibilidad que ofrece esta cuenta bancaria!”
-                            </p>
-                        </div>
-                    </div>
-
-                </div> --}}
-
                 <div class="col-12 my-3 shadow rounded">
                     <div class="row row-cols-2">
                         <div class="col-12 col-md-6 p-0 m-0">
-                            <img src="https://media.istockphoto.com/id/1433388112/es/foto/concepto-de-financiaci%C3%B3n-de-banca-de-inversi%C3%B3n-de-ahorro-pila-de-monedas-con-alcanc%C3%ADa-sobre-la.jpg?s=1024x1024&w=is&k=20&c=3_WO4jp77JgRGBsQMDyi6NCl1nr0q2BEO7xF29p2Bp0="
-                                class="img-fluid rounded" alt="...">
+                            <img src="{{ asset('img/home/cuentacorriente.jpg') }}" class="img-fluid rounded"
+                                alt="Ilustración de una cuenta corriente con tarjetas bancarias" loading="lazy">
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="row h-100">
@@ -123,12 +80,9 @@
                                     <h5 class="fw-bold fs-3">Cuenta Corriente</h5>
                                 </div>
                                 <div class="col-12 col-xl-12">
-                                    <p class="">permite administrar tus fondos de
-                                        manera eficiente. Con ella, puedes
-                                        realizar pagos, transferencias y acceder a tu dinero fácilmente. ¡Descubre la
-                                        comodidad
-                                        y
-                                        flexibilidad que ofrece esta cuenta bancaria!”
+                                    <p>¿Estás listo para dar un paso hacia una gestión financiera más ágil y
+                                        conveniente? Nuestra Cuenta Corriente es la solución perfecta para ti. Permíteme
+                                        contarte por qué deberías considerarla
                                     </p>
                                 </div>
                             </div>
@@ -138,22 +92,18 @@
                 <div class="col-12 my-3 shadow rounded">
                     <div class="row row-cols-2">
                         <div class="col-12 col-md-6 p-0 m-0">
-                            <img src="https://images.unsplash.com/photo-1607697987724-fc9f8b225223?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                class="img-fluid rounded" alt="...">
+                            <img src="{{ asset('img/home/cuentahorro.jpg') }}" class="img-fluid rounded"
+                                alt="Ilustración de una cuenta de ahorro" loading="lazy">
                         </div>
                         <div class="col-12 col-md-6">
 
                             <div class="row h-100">
                                 <div class="col-12 col-xl-12 align-self-end">
-                                    <h5 class="fw-bold fs-3">Cuenta Corriente</h5>
+                                    <h5 class="fw-bold fs-3">Cuentas de Ahorro</h5>
                                 </div>
                                 <div class="col-12 col-xl-12">
-                                    <p class="">permite administrar tus fondos de
-                                        manera eficiente. Con ella, puedes
-                                        realizar pagos, transferencias y acceder a tu dinero fácilmente. ¡Descubre la
-                                        comodidad
-                                        y
-                                        flexibilidad que ofrece esta cuenta bancaria!”
+                                    <p>Con una Cuenta de Ahorro, tu dinero no solo está seguro, sino que
+                                        también gana intereses. Cada mes, verás crecer tus ahorros sin esfuerzo adicional.
                                     </p>
                                 </div>
                             </div>
@@ -163,95 +113,53 @@
                 <div class="col-12 my-3 shadow rounded">
                     <div class="row row-cols-2">
                         <div class="col-12 col-md-6 p-0 m-0">
-                            <img src="https://images.unsplash.com/photo-1459257831348-f0cdd359235f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                class="img-fluid rounded" alt="...">
+                            <img src="{{ asset('img/home/depositoaplazo.png') }}" class="img-fluid rounded"
+                                alt="Ilustración de un depósito a plazo fijo" loading="lazy">
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="row h-100">
                                 <div class="col-12 col-xl-12 align-self-end">
-                                    <h5 class="fw-bold fs-3">Cuenta Corriente</h5>
+                                    <h5 class="fw-bold fs-3">Depósitos a Plazo</h5>
                                 </div>
                                 <div class="col-12 col-xl-12">
-                                    <p class="">permite administrar tus fondos de
-                                        manera eficiente. Con ella, puedes
-                                        realizar pagos, transferencias y acceder a tu dinero fácilmente. ¡Descubre la
-                                        comodidad
-                                        y
-                                        flexibilidad que ofrece esta cuenta bancaria!”
+                                    <p>Con los Depósitos a Plazo, tu dinero genera intereses a una tasa fija
+                                        durante un período específico (por ejemplo, 3, 6 o 12 meses).
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <section class="container">
+            <h4 class="pt-5">Capital Inteligente Financiero</h4>
+            <p class="">
+                Hemos creado el Programa de Financiamiento Integral para ayudarte a alcanzar tus objetivos. Ya sea que
+                desees comprar una casa, adquirir un automóvil, financiar estudios o planificar un viaje, estamos aquí para
+                brindarte soluciones personalizadas. Nuestro equipo de expertos te guiará en cada paso, asegurando que
+                obtengas las mejores condiciones y beneficios.
+            </p>
+            <div class="row shadow">
+                <div class="col-6 col-md-8 p-0 m-0">
+                    <img src="{{ asset('img/home/banner-financiamiento.jpg') }}" alt="" class="img-fluid rounded">
+                </div>
+                <div class="col-6 col-md-4 p-0 m-0">
+                    <div class="row">
+                        <div class="col-12">
+                            <img src="https://cdn.pixabay.com/photo/2020/05/25/17/03/travel-5219496_1280.jpg" alt=""
+                                class="img-fluid rounded">
+                        </div>
+                        <div class="col-12">
+                            <img src="https://img.freepik.com/foto-gratis/mujer-comprando-carro_1303-13573.jpg?t=st=1723793866~exp=1723797466~hmac=4d30e0f56b9abff8a61b1f170a67309a62792c17cc65e7f6920ca6f181bfa2d2&w=740"
+                                alt="" class="img-fluid rounded">
+
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
-            {{-- <div class="col-12">
-                    <div class="row row-cols-2 shadow-lg">
-
-
-                        <div class="col  align-self-center">
-                            <h5 class="fw-bold fs-3">Cuentas de Ahorro</h5>
-                            <p class="">servicio bancario que te permite depositar dinero de forma segura y acceder a
-                                él cuando lo necesites. Además, esta cuenta ofrece intereses por el capital que mantienes en
-                                ella, lo que te permite generar ingresos pasivos. ¡Empieza a ahorrar y a hacer crecer tus
-                                fondos con nuestra cuenta de ahorro!
-                            </p>
-                        </div>
-                        <div class="col">
-                            <img src="https://media.istockphoto.com/id/1433388112/es/foto/concepto-de-financiaci%C3%B3n-de-banca-de-inversi%C3%B3n-de-ahorro-pila-de-monedas-con-alcanc%C3%ADa-sobre-la.jpg?s=1024x1024&w=is&k=20&c=3_WO4jp77JgRGBsQMDyi6NCl1nr0q2BEO7xF29p2Bp0="
-                                class="card-img-top" alt="...">
-                        </div>
-                    </div>
-                </div> --}}
-
-
-
-
-            {{-- <div class="col">
-                    <div class="card shadow-lg">
-                        <img src="https://media.istockphoto.com/id/1433388112/es/foto/concepto-de-financiaci%C3%B3n-de-banca-de-inversi%C3%B3n-de-ahorro-pila-de-monedas-con-alcanc%C3%ADa-sobre-la.jpg?s=1024x1024&w=is&k=20&c=3_WO4jp77JgRGBsQMDyi6NCl1nr0q2BEO7xF29p2Bp0="
-                            class="card-img-top" alt="...">
-                        <diV class="card-body">
-                            <h5 class="card-title text-center">Cuenta Corriente</h5>
-                            <p class="card-text">permite administrar tus fondos de manera eficiente. Con ella, puedes
-                                realizar pagos, transferencias y acceder a tu dinero fácilmente. ¡Descubre la comodidad y
-                                flexibilidad que ofrece esta cuenta bancaria!”
-                            </p>
-                           
-                        </diV>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-lg">
-                        <img src="https://media.istockphoto.com/id/1433388112/es/foto/concepto-de-financiaci%C3%B3n-de-banca-de-inversi%C3%B3n-de-ahorro-pila-de-monedas-con-alcanc%C3%ADa-sobre-la.jpg?s=1024x1024&w=is&k=20&c=3_WO4jp77JgRGBsQMDyi6NCl1nr0q2BEO7xF29p2Bp0="
-                            class="card-img-top" alt="...">
-                        <diV class="card-body">
-                            <h5 class="card-title text-center">Cuentas de Ahorro</h5>
-                            <p class="card-text">Ahorra con inteligencia y ve crecer tu dinero. Características destacadas
-                            </p>
-                        </diV>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-lg">
-                        <img src="https://media.istockphoto.com/id/1433388112/es/foto/concepto-de-financiaci%C3%B3n-de-banca-de-inversi%C3%B3n-de-ahorro-pila-de-monedas-con-alcanc%C3%ADa-sobre-la.jpg?s=1024x1024&w=is&k=20&c=3_WO4jp77JgRGBsQMDyi6NCl1nr0q2BEO7xF29p2Bp0="
-                            class="card-img-top" alt="...">
-                        <diV class="card-body">
-                            <h5 class="card-title">Depósitos a Plazo</h5>
-                            <p class="card-text">Maximiza tus ganancias con depósitos a plazo fijo. Lo que necesitas saber
-                            </p>
-                        </diV>
-                    </div>
-                </div> --}}
-
-
-    </div>
-    </section>
-
-
-
-    </div>
-
-@endsection
+        </section>
+    @endsection
