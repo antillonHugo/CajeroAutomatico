@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <header class="mb-3 pb-5">
         <nav class="navbar navbar-expand-lg shadow fixed-top bg-white">
             <div class="container-fluid">
