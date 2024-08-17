@@ -54,10 +54,10 @@
                                             <!-- Campos del formulario -->
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="form-group">
-                                                        <label for="pais" class="fw-bold">País</label>
-                                                        <input type="text" name="pais" class="form-control"
-                                                            value="{{ $pais->pais }}" placeholder="ingrese el país" required>
+                                                    <div class="form-floating">
+                                                        <input type="text" class="form-control" id="pais" name="pais"
+                                                            placeholder="Agregar país..." value="{{ $pais->pais }}" required>
+                                                        <label for="pais">País</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="submit" value="Guardar" class="btn btn-primary my-3">
@@ -95,10 +95,10 @@
                 @csrf
                 <div class="row">
                     <div class="col">
-                        <div class="form-group">
-                            <label for="pais" class="fw-bold">País</label>
-                            <!-- Campos del formulario -->
-                            <input type="text" name ="pais" class="form-control" placeholder="agregar pais ....">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="pais" name="pais"
+                                placeholder="Agregar país...">
+                            <label for="pais">País</label>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Guardar" class="btn btn-primary my-3">
