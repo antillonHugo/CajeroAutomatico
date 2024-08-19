@@ -32,6 +32,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                         <a class="nav-link" href=" {{ route('paises.index') }} ">Paises</a>
+                        <a class="nav-link" href="{{ route('departamento.index') }}">Departamentos</a>
                         <a class="nav-link" href="#">Clientes</a>
                         <a class="nav-link" href="#">Cuentas</a>
                         <a class="nav-link" href="#">Transacciones</a>
