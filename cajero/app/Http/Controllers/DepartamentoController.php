@@ -37,7 +37,7 @@ class DepartamentoController extends Controller
             'departamento' => $request->input('departamento')
         ]);
 
-        return redirect()->route('departamento.index')->with('success', 'El país se ha creado con éxito.');
+        return redirect()->route('departamento.index')->with('success', 'El departamento se ha creado con éxito.');
     }
 
     /**
