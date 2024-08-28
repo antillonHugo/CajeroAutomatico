@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pais;
 use App\Http\Requests\PaisFormRequest;
+use Illuminate\Http\Request;
 
 class PaisController extends Controller
 {
@@ -15,7 +16,7 @@ class PaisController extends Controller
         // listamos los registros de 'pais'
         $paises = Pais::all();
 
-        return view('paises.index', compact('paises'));
+        return view('pais.index', compact('paises'));
     }
 
     /**
@@ -28,30 +29,31 @@ class PaisController extends Controller
      */
     public function store(PaisFormRequest $request)
     {
-        $pais = trim($request->input('pais'));
+        //$pais = trim($request->input('pais'));
 
         Pais::create([
             'pais' => $request->input('pais')
         ]);
 
-        return redirect()->route('paises.index')->with('success', 'El país se ha creado con éxito.');
+        return redirect()->route('pais.index')->with('success', 'El país se ha creado con éxito.');
     }
 
     /**
      * Muestra un recurso específico.
      */
-    public function show($cod_pais)
+    public function show() {}
+    /*public function show($cod_pais)
     {
         $pais = Pais::find($cod_pais);
 
         // Verificamos si el país existe
-        if (!$pais) {
-            return redirect()->route('paises.index')->withErrors('País no encontrado.');
+        if ($pais) {
+            // Retornar la vista con los datos del país
+            return view('paises.show', compact('pais'));
         }
 
-        // Retornar la vista con los datos del país
-        return view('paises.show', compact('pais'));
-    }
+        return redirect()->route('paises.index')->withErrors('País no encontrado.');
+    }*/
 
     /**
      * Muestra el formulario para editar un recurso.
@@ -77,7 +79,7 @@ class PaisController extends Controller
         $pais->update();
 
         // Redirige con un mensaje de éxito
-        return redirect()->route('paises.index')->with('success', 'País actualizado exitosamente.');
+        return redirect()->route('pais.index')->with('success', 'País actualizado exitosamente.');
     }
 
     /**
@@ -89,11 +91,11 @@ class PaisController extends Controller
 
         // Verificamos si el país existe
         if (!$pais) {
-            return redirect()->route('paises.index')->withErrors('País no encontrado.');
+            return redirect()->route('pais.index')->withErrors('País no encontrado.');
         }
 
         $pais->delete();
         // Retornar la vista con los datos del país
-        return redirect()->route('paises.index')->with('success', 'País eliminado exitosamente.');
+        return redirect()->route('pais.index')->with('success', 'País eliminado exitosamente.');
     }
 }

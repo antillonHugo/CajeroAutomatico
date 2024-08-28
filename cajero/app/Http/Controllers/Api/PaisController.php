@@ -26,7 +26,7 @@ class PaisController extends Controller
         }
 
         $arraypais = [
-            'paises' => $pais,
+            'pais' => $pais,
             'status' => 200
         ];
         return response()->json($arraypais, 200);

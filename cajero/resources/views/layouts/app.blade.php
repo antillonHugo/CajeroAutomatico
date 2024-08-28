@@ -24,21 +24,22 @@
                     <span class="fw-light">Capital</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
-                        <a class="nav-link" href=" {{ route('paises.index') }} ">Paises</a>
-                        <a class="nav-link" href="{{ route('departamento.index') }}">Departamentos</a>
-                        <a class="nav-link" href="#">Clientes</a>
-                        <a class="nav-link" href="#">Cuentas</a>
-                        <a class="nav-link" href="#">Transacciones</a>
-                        <a class="nav-link" href="#">Iniciar sesión</a>
-                        <a class="nav-link" href="#">Registrarse</a>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item"> <a class="nav-link active" aria-current="page"
+                                href="{{ route('home') }}">Home</a> </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('pais.index') }}">País</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Clientes</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Cuentas</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Transacciones</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Iniciar sesión</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Registrarce</a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -61,6 +62,9 @@
     </script>
     <!--archivo js para el buscador de los formularios-->
     <script src="{{ asset('js/searchForm.js') }}"></script>
+
+    <!--archivo js para el dinamismo general-->
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>

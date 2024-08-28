@@ -141,8 +141,9 @@
                 </div>
                 <div class="col-12 col-sm-8 col-xxl-4 p-0 m-0">
                     <div class="position-relative">
-                        <img src="{{ asset('img/home/banner-financiamiento01.jpg') }}" alt="Opcion de Financiamiento para Comprar una Casa"
-                            class="img-fluid rounded-top" loading="lazy">
+                        <img src="{{ asset('img/home/banner-financiamiento01.jpg') }}"
+                            alt="Opcion de Financiamiento para Comprar una Casa" class="img-fluid rounded-top"
+                            loading="lazy">
                         <h3 class="position-absolute top-0 start-0  p-3 bg-dark bg-opacity-25 text-white ms-lg-1 ms-xxl-0">
                             Casa</h3>
                     </div>
@@ -151,8 +152,9 @@
                     <div class="row">
                         <div class="col-12 col-xxl-6 p-0 m-0">
                             <div class="position-relative">
-                                <img src="{{ asset('img/home/banner-financiamiento02.jpg') }}" alt="Opcion de Financiamiento para Realizar un Viaje"
-                                    class="img-fluid rounded-top" loading="lazy">
+                                <img src="{{ asset('img/home/banner-financiamiento02.jpg') }}"
+                                    alt="Opcion de Financiamiento para Realizar un Viaje" class="img-fluid rounded-top"
+                                    loading="lazy">
 
                                 <h3 class="position-absolute top-0 start-0 p-3 bg-dark bg-opacity-25 text-white">Viajes
                                 </h3>
@@ -160,7 +162,8 @@
                         </div>
                         <div class="col-12 pb-0 mb-0 col-xxl-6 p-0 m-0">
                             <div class="position-relative">
-                                <img src="{{ asset('img/home/banner-financiamiento03.jpg') }}" alt="Opciones de Financiamiento para Comprar un Automóvil."
+                                <img src="{{ asset('img/home/banner-financiamiento03.jpg') }}"
+                                    alt="Opciones de Financiamiento para Comprar un Automóvil."
                                     class="img-fluid rounded-bottom" loading="lazy">
 
                                 <h3 class="position-absolute top-0 start-0 p-3 bg-dark bg-opacity-25 text-white">Auto</h3>

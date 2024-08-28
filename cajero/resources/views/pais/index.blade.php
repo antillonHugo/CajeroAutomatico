@@ -8,10 +8,10 @@
             @component('components.navigation.MenuNavegacionPais')
             @endcomponent
         </div>
+        {{-- col-md-7 col-lg-5 --}}
         <div class="col-lg-6">
-
-            <h3 class="py-3">Listado de Departamentos</h3>
-            <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalDepartamento">
+            <h3 class="py-3">Listado de países</h3>
+            <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalPais">
                 <i class="fa-solid fa-plus"></i> Nuevo
             </button>
             <div class="d-none d-lg-block text-center p-5">
@@ -20,7 +20,6 @@
         </div>
 
         <div class="col-lg-6">
-
             <!-- componente para mostrar el formulario de busqueda -->
             @component('components.forms.search-input')
             @endcomponent
@@ -36,33 +35,30 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Departamentos</th>
+                            <th scope="col">País</th>
                             <th scope="col" class="text-end">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="tbody">
 
-                        @foreach ($departamentos as $dpts)
+
+                        @foreach ($paises as $pais)
                             <!-- Incluir el componente de modal para editar el registro de un país -->
-                            @component('components.modals.modal', [
-                                'id' => 'editModal' . $dpts->cod_departamento,
-                                'title' => 'Editar Departamento',
-                            ])
+                            @component('components.modals.modal', ['id' => 'editModal' . $pais->cod_pais, 'title' => 'Editar País'])
                                 <!-- Contenido del formulario para editar país -->
-                                <form action="{{ route('departamento.update', $dpts->cod_departamento) }}" method="POST">
+                                <form action="{{ route('pais.update', $pais->cod_pais) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <!-- Campos del formulario -->
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control" id="departamento" name="departamento"
-                                                    placeholder="Agregar departamento..." value="{{ $dpts->departamento }}"
-                                                    required>
-                                                <label for="departamento">Departamento</label>
+                                                <input type="text" class="form-control" id="pais" name="pais"
+                                                    placeholder="Agregar país..." value="{{ $pais->pais }}" required>
+                                                <label for="pais">País</label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="submit" value="Guardar" class="btn btn-primary my-3">
+                                                <input type="submit" value="Actualizar" class="btn btn-primary my-3">
                                             </div>
                                         </div>
                                     </div>
@@ -70,15 +66,12 @@
                             @endcomponent
 
                             <!-- Incluir el componente de modal para eliminar el registro de un país -->
-                            @component('components.modals.modal', [
-                                'id' => 'deleteModal' . $dpts->cod_departamento,
-                                'title' => 'Eliminar Departamento',
-                            ])
+                            @component('components.modals.modal', ['id' => 'deleteModal' . $pais->cod_pais, 'title' => 'Eliminar País'])
                                 <!-- Contenido del formulario para eliminar país -->
-                                <form action="{{ route('departamento.destroy', $dpts->cod_departamento) }}" method="POST">
+                                <form action="{{ route('pais.destroy', $pais->cod_pais) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <p>Confirme si desea eliminar el Departamento</p>
+                                    <p>Confirme si desea eliminar el país</p>
                                     <button type="button" class="btn btn-default btn-sm border" data-bs-dismiss="modal"
                                         aria-label="Close">Cancelar</button>
                                     <button type="submit" class="btn btn-primary btn-sm">Confirmar</button>
@@ -92,16 +85,15 @@
         </div>
 
         <!-- Incluir el componente de modal para crear el registro de un país -->
-        @component('components.modals.modal', ['id' => 'modalDepartamento', 'title' => 'Nuevo Departamento'])
+        @component('components.modals.modal', ['id' => 'modalPais', 'title' => 'Nuevo País'])
             <!-- Contenido del formulario para agregar país -->
-            <form action="{{ route('departamento.store') }}" method="POST">
+            <form action="{{ route('pais.store') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="departamento" name="departamento"
-                                placeholder="Agregar un departamento...">
-                            <label for="departamento">Departamento</label>
+                            <input type="text" class="form-control" id="pais" name="pais" placeholder="Agregar país...">
+                            <label for="pais">País</label>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Guardar" class="btn btn-primary my-3">
