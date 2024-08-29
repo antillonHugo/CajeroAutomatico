@@ -9,7 +9,7 @@
                     <a class="nav-link" href="{{ route('departamento.index') }}">Departamentos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Municipios</a>
+                    <a class="nav-link" href="{{ route('municipio.index') }}">Municipios</a>
                 </li>
             </ul>
         </div>
