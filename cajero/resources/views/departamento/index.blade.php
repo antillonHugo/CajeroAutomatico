@@ -20,9 +20,6 @@
         </div>
 
         <div class="col-lg-6">
-
-            <h5 class="fw-bold text-center fs-2 message"></h5>
-
             @if ($departamentos->count() > 0)
                 <!-- componente para mostrar el formulario de busqueda -->
                 @component('components.forms.search-input')
@@ -31,6 +28,8 @@
                 <!-- componente para mostrar las alertas -->
                 @component('components.alert.message-alerts')
                 @endcomponent
+
+                <h5 class="fw-bold text-center fs-2 message"></h5>
                 <div class="table-responsive">
                     <table class="table table-hover user-select-none cursor-default">
                         <thead>
