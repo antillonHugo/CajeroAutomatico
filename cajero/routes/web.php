@@ -4,6 +4,7 @@ use  App\Http\Middleware\XssSanitization;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaisController;
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\MunicipioController;
 use Illuminate\Support\Facades\URL;
 
 // URL::forceScheme('https');
@@ -16,3 +17,4 @@ Route::get('/', function () {
 // Definimos todas las rutas para realizar el CRUD
 Route::resource('pais', PaisController::class)->middleware(XssSanitization::class);
 Route::resource('departamento', DepartamentoController::class)->middleware(XssSanitization::class);
+Route::resource('municipio', MunicipioController::class)->middleware(XssSanitization::class);
