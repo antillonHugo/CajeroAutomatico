@@ -29,7 +29,7 @@
                 @component('components.alert.message-alerts')
                 @endcomponent
 
-                <h5 class="fw-bold text-center fs-2 message"></h5>
+                <h5 class="fw-bold text-center message"></h5>
                 <div class="table-responsive">
                     <table class="table table-hover user-select-none cursor-default">
                         <thead>
