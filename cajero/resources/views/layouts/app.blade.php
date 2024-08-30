@@ -34,7 +34,7 @@
                         <li class="nav-item"> <a class="nav-link active" aria-current="page"
                                 href="{{ route('home') }}">Home</a> </li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('pais.index') }}">País</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Clientes</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('cliente.index') }}">Clientes</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="#">Cuentas</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="#">Transacciones</a></li>
                         <li class="nav-item"> <a class="nav-link" href="#">Iniciar sesión</a></li>
