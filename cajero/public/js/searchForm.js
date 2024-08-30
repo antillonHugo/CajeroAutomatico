@@ -15,7 +15,6 @@ if (document.getElementById("searchText")) {
     // Agrega el evento solo si el elemento existe
     searchText[0].addEventListener("keyup", function () {
         searchTextvalue = searchText[0].value.trim();
-        console.log(searchTextvalue);
         buscadorApi(solicitudApi, searchTextvalue);
     });
 }
@@ -25,7 +24,6 @@ function obtenersolicitudfetch() {
     //obtengo el ultimo valor de la url
     let segmento = URLactual.split("/");
     solicitudApi = segmento.at(-1);
-    console.log(solicitudApi);
     return solicitudApi;
 }
 
