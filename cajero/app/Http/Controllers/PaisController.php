@@ -9,14 +9,14 @@ use Illuminate\Http\Request;
 class PaisController extends Controller
 {
     /**
-     * Muestra una lista de recursos.uuu
+     * Muestra una lista de recursos
      */
     public function index()
     {
         // listamos los registros de 'pais'
         $paises = Pais::all();
 
-        return view('pais.index', compact('paises'));
+        return view('pais.index', compact("paises"));
     }
 
     /**
@@ -29,31 +29,23 @@ class PaisController extends Controller
      */
     public function store(PaisFormRequest $request)
     {
-        //$pais = trim($request->input('pais'));
-
-        Pais::create([
+        $pais = Pais::firstOrCreate([
             'pais' => $request->input('pais')
         ]);
 
-        return redirect()->route('pais.index')->with('success', 'El país se ha creado con éxito.');
+        if ($pais->wasRecentlyCreated) {
+            // El registro fue creado
+            return redirect()->back()->with('success', 'El país ha sido creado exitosamente.');
+        } else {
+            // El registro ya existía
+            return redirect()->back()->with('info', 'El país ya existe.');
+        }
     }
 
     /**
      * Muestra un recurso específico.
      */
     public function show() {}
-    /*public function show($cod_pais)
-    {
-        $pais = Pais::find($cod_pais);
-
-        // Verificamos si el país existe
-        if ($pais) {
-            // Retornar la vista con los datos del país
-            return view('paises.show', compact('pais'));
-        }
-
-        return redirect()->route('paises.index')->withErrors('País no encontrado.');
-    }*/
 
     /**
      * Muestra el formulario para editar un recurso.
@@ -68,18 +60,25 @@ class PaisController extends Controller
      */
     public function update(PaisFormRequest $request, $cod_pais)
     {
-
-        // Encuentra el registro existente por su ID
+        // Verificar si el registro existe
         $pais = Pais::findOrFail($cod_pais);
 
         // Obtener los datos validados
-        $pais->pais = $request->input('pais');
+        $nuevoNombre = $request->input('pais');
 
-        // Actualizar el país con los datos validados
-        $pais->update();
+        // Verificar si ya existe un país con el mismo nombre
+        $paisExistente = Pais::where('pais', $nuevoNombre)->first();
 
-        // Redirige con un mensaje de éxito
-        return redirect()->route('pais.index')->with('success', 'País actualizado exitosamente.');
+        if ($paisExistente && $paisExistente->cod_pais != $cod_pais) {
+            // Si existe otro país con el mismo nombre, devolver un error
+            return redirect()->back()->with('info', 'El nombre del país ya existe.');
+        }
+
+        // Actualizar el registro existente
+        $pais->pais = $nuevoNombre;
+        $pais->save();
+
+        return redirect()->back()->with('success', 'El país ha sido actualizado exitosamente.');
     }
 
     /**

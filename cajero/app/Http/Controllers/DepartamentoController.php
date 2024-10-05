@@ -11,7 +11,6 @@ class DepartamentoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    //función que me permitira filtrar la información
     public function index()
     {
         $departamentos = Departamento::all();
@@ -32,12 +31,18 @@ class DepartamentoController extends Controller
      */
     public function store(DepartamentoFormRequest $request)
     {
-        //
-        Departamento::create([
+        //firstOrCreate es equivalente a create 
+        $departamento = Departamento::firstOrCreate([
             'departamento' => $request->input('departamento')
         ]);
 
-        return redirect()->route('departamento.index')->with('success', 'El departamento se ha creado con éxito.');
+        if ($departamento->wasRecentlyCreated) {
+            // El registro fue creado
+            return redirect()->back()->with('success', 'El departamento ha sido creado exitosamente.');
+        } else {
+            // El registro ya existía
+            return redirect()->back()->with('info', 'El departamento ya existe.');
+        }
     }
 
     /**
@@ -65,13 +70,22 @@ class DepartamentoController extends Controller
         $departamento = Departamento::findOrFail($cod_departamento);
 
         // Obtener los datos validados
-        $departamento->departamento = $request->input('departamento');
+        $nuevoDepartamento = $request->input('departamento');
 
-        // Actualizar el departamento con los datos validados
-        $departamento->update();
+        // Verificar si ya existe un departamento con el mismo nombre
+        $departamentoExistente = Departamento::where('departamento', $nuevoDepartamento)->first();
+
+        if ($departamentoExistente && $departamentoExistente->cod_departamento != $cod_departamento) {
+            // Si existe otro departamento con el mismo nombre, devolver un error
+            return redirect()->back()->with('info', 'El nombre del departamento ya existe.');
+        }
+
+        // Actualizar el registro existente
+        $departamento->departamento = $nuevoDepartamento;
+        $departamento->save();
 
         // Redirige con un mensaje de éxito
-        return redirect()->route('departamento.index')->with('success', 'Departamento actualizado exitosamente.');
+        return redirect()->back()->with('success', 'El departamento ha sido actualizado exitosamente.');
     }
 
     /**

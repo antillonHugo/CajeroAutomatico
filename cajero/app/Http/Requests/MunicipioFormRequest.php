@@ -22,8 +22,7 @@ class MunicipioFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-            'municipio' => 'required|string|max:30|unique:municipios'
+            'municipio' => 'required|string|max:30'
         ];
     }
 
@@ -32,8 +31,7 @@ class MunicipioFormRequest extends FormRequest
     {
         return [
             'municipio.required' => 'El municipio es obligatorio.',
-            'municipio.max' => 'El nombre del municipio no debe exceder los 30 caracteres.',
-            'municipio.unique' => 'El municipio que intentas registrar ya existe en nuestra base de datos.'
+            'municipio.max' => 'El nombre del municipio no debe exceder los 30 caracteres.'
         ];
     }
 }

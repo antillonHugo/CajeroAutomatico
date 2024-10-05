@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Shared;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class SearchInput extends Component
+class ContenedorPrimario extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class SearchInput extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.search-input');
+        return view('components.shared.contenedor-primario');
     }
 }

@@ -17,11 +17,12 @@ class XssSanitization
         $input = $request->all();
 
         array_walk_recursive($input, function (&$input) {
-            // Eliminamos los caracteres especiales
-            $input = preg_replace('/[^A-Za-z0-9\- ]/', '', $input);
-            // Eliminamos los espacios en blanco 
+            // Permitimos letras con acentos, ñ y eliminamos otros caracteres especiales
+            $input = preg_replace('/[^A-Za-z0-9áéíóúÁÉÍÓÚñÑ\- ]/', '', $input);
+            // Eliminamos los espacios en blanco
             $input = trim($input);
         });
+
 
         $request->merge($input);
 

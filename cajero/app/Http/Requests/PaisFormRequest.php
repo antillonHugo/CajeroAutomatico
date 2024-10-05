@@ -26,8 +26,7 @@ class PaisFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-            'pais' => 'required|string|max:50|unique:paises'
+            'pais' => 'required|string|max:50'
         ];
     }
 
@@ -36,8 +35,7 @@ class PaisFormRequest extends FormRequest
     {
         return [
             'pais.required' => 'El pais es obligatorio.',
-            'pais.max' => 'El nombre del país no debe exceder los 50 caracteres.',
-            'pais.unique' => 'El país que intentas registrar ya existe en nuestra base de datos.'
+            'pais.max' => 'El nombre del país no debe exceder los 50 caracteres.'
         ];
     }
 }

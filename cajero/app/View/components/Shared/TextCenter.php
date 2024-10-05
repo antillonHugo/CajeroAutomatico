@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Shared;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Modal extends Component
+class TextCenter extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class Modal extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.modal');
+        return view('components.shared.text-center');
     }
 }

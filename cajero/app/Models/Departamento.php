@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Departamento extends Model
 {
@@ -16,4 +17,10 @@ class Departamento extends Model
     protected $table = 'departamentos';
 
     protected $fillable = ['departamento'];
+
+    // Relación uno a muchos con departamento y cliente
+    public function clientes(): HasMany
+    {
+        return $this->hasMany(Cliente::class, 'cod_cliente', 'cod_departamento');
+    }
 }

@@ -21,8 +21,9 @@ class DepartamentoFormRequest extends FormRequest
      */
     public function rules(): array
     {
+        // 
         return [
-            'departamento' => 'required|string|max:50|unique:departamentos'
+            'departamento' => 'required|string|max:50'
         ];
     }
 
@@ -31,8 +32,7 @@ class DepartamentoFormRequest extends FormRequest
     {
         return [
             'departamento.required' => 'El departamento es obligatorio.',
-            'departamento.max' => 'El nombre del departamento no debe exceder los 50 caracteres.',
-            'departamento.unique' => 'El departamento que intentas registrar ya existe en nuestra base de datos.'
+            'departamento.max' => 'El nombre del departamento no debe exceder los 50 caracteres.'
         ];
     }
 }

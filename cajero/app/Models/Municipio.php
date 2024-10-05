@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Municipio extends Model
 {
@@ -16,4 +17,10 @@ class Municipio extends Model
     protected $table = 'municipios';
 
     protected $fillable = ['municipio'];
+
+    // Relación uno a muchos entre municipio y cliente
+    public function clientes(): HasMany
+    {
+        return $this->hasMany(Cliente::class, 'cod_cliente', 'cod_municipio');
+    }
 }

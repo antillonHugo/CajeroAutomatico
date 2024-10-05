@@ -19,7 +19,7 @@ class Pais extends Model
 
     protected $fillable = ['pais'];
 
-    // Relación muchos a uno con país y cliente
+    // Relación uno a muchos entre país y cliente
     public function cliente(): HasMany
     {
         return $this->hasMany(Cliente::class, 'cod_pais');
