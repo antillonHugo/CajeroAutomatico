@@ -54,6 +54,7 @@ const filtrarClientes = async (filtros, paginaInicial = 1) => {
 
 //crea la interfaz para mostrar los clientes
 const mostrarClientes = (clientes) => {
+    console.log(clientes);
     let content_tbody = ``;
 
     clientes.data.forEach((cliente) => {
@@ -66,9 +67,9 @@ const mostrarClientes = (clientes) => {
         <td class="text-nowrap">${cliente.fecha_de_nacimiento}</td>
         <td class="text-nowrap">${cliente.celular}</td>
         <td class="text-nowrap">${cliente.correo}</td>
-        <td class="text-nowrap">${cliente.cod_pais}</td>
-        <td class="text-nowrap">${cliente.cod_departamento}</td>
-        <td class="text-nowrap">${cliente.cod_municipio}</td>
+        <td class="text-nowrap">${cliente.pais.pais}</td>
+        <td class="text-nowrap">${cliente.departamento.departamento}</td>
+        <td class="text-nowrap">${cliente.municipio.municipio}</td>
         <td class="text-end text-nowrap">
             <button type="button" class="btn btn-light text-primary" data-bs-toggle="modal"
                 data-bs-target="#editModal${cliente.cod_cliente}">

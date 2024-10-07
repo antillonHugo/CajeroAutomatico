@@ -7,7 +7,7 @@
 <x-home.grid>
 
     <x-home.column>
-        <img src="{{ asset('../img/home/socios/supermercados/super-selectos.jpg') }}" class="img-fluid   "
+        <img src="{{ asset('../img/home/socios/supermercados/super-selectos.jpg') }}" class="img-fluid roundedm"
             alt="" loading="lazy">
     </x-home.column>
     <x-home.column>
@@ -16,10 +16,10 @@
     </x-home.column>
     <x-home.column>
         <img src="{{ asset('../img/home/socios/supermercados/market.png') }}"
-            class="img-fluid h-100" alt="" loading="lazy">
+            class="img-fluid h-100 rounded" alt="" loading="lazy">
     </x-home.column>
     <x-home.column>
         <img src="{{ asset('../img/home/socios/supermercados/jumbo.png') }}"
-            class="img-fluid" alt="" loading="lazy">
+            class="img-fluid rounded" alt="" loading="lazy">
     </x-home.column>
 </x-home.grid>

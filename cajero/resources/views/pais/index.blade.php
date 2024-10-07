@@ -2,6 +2,7 @@
 
 @section('title', 'Lista de Paises')
 @section('content')
+
     <x-shared.contenedor-primario>
         <div class="col-12">
             <!-- componente para mostrar el menú de navegacion -->
