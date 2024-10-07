@@ -61,10 +61,16 @@ const mostrarClientes = (clientes) => {
         content_tbody += `
     <tr>
         <th scope="col">${cliente.cod_cliente}</th>
-        <td class="text-nowrap">${cliente.primer_nombre} ${cliente.segundo_nombre}</td>
-        <td class="text-nowrap">${cliente.primer_apellido} ${cliente.segundo_apellido}</td>
+        <td class="text-nowrap">${cliente.primer_nombre} ${
+            cliente.segundo_nombre
+        }</td>
+        <td class="text-nowrap">${cliente.primer_apellido} ${
+            cliente.segundo_apellido
+        }</td>
         <td class="text-nowrap">${cliente.dui}</td>
-        <td class="text-nowrap">${cliente.fecha_de_nacimiento}</td>
+        <td class="text-nowrap">${formatearFecha(
+            cliente.fecha_de_nacimiento
+        )}</td>
         <td class="text-nowrap">${cliente.celular}</td>
         <td class="text-nowrap">${cliente.correo}</td>
         <td class="text-nowrap">${cliente.pais.pais}</td>

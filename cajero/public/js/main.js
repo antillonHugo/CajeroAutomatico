@@ -74,3 +74,12 @@ const paginador = (lista) => {
 
     return botonesPaginador;
 };
+
+// Función para formatear la fecha
+function formatearFecha(fecha) {
+    const date = new Date(fecha);
+    const dia = ("0" + date.getDate()).slice(-2);
+    const mes = ("0" + (date.getMonth() + 1)).slice(-2);
+    const anio = date.getFullYear();
+    return `${dia}-${mes}-${anio}`;
+}
