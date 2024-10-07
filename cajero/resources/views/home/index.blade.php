@@ -32,17 +32,16 @@
                 <div id="carouselHome" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://plus.unsplash.com/premium_photo-1661369965783-0e769d86b410?q=80&w=1504&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                class="d-block w-100 rounded" alt="representa la actitud de los empleados" loading="lazy">
+                            <img src="{{ asset('../img/home/carousel/carousel01.png') }}" class="d-block w-100 rounded"
+                                alt="representa la actitud de los empleados" loading="lazy">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://images.unsplash.com/photo-1726137569906-14f8079861fa?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                class="d-block w-100 rounded" alt="represntación del servicio de tarjetas de creditos"
-                                loading="lazy">
+                            <img src="{{ asset('../img/home/carousel/carousel02.png') }}" class="d-block w-100 rounded"
+                                alt="representacion de una familia feliz" loading="lazy">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://images.pexels.com/photos/4148842/pexels-photo-4148842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                class="d-block w-100 rounded" alt="representacion de una familia feliz" loading="lazy">
+                            <img src="{{ asset('../img/home/carousel/carousel03.png') }}" class="d-block w-100 rounded"
+                                alt="represntación del servicio de tarjetas de creditos" loading="lazy">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome"
@@ -61,12 +60,12 @@
     </x-shared.text-center>
     <x-shared.text-center>
         <x-shared.centered-container-lg>
-            <p class="fs-4 text-secondary fw-semibold text-break">
+            <h5 class="text-secondary fw-semibold text-break lh-base">
                 Experimenta la conveniencia de realizar operaciones bancarias con Sistema
                 Bancario. Explora nuestros servicios y comienza a realizar
                 operaciones bancarias hoy mismo.
-            </p>
-            <x-home.link href="">
+            </h5>
+            <x-home.link>
                 Detalles...
             </x-home.link>
         </x-shared.centered-container-lg>
@@ -87,7 +86,7 @@
             <div class="row g-4">
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <a href="" class="text-reset text-decoration-none">
-                        <img src="{{ asset('../img/home/cuentas.png') }}"
+                        <img src="{{ asset('../img/home/servicios/cuenta.png') }}"
                             alt="imagen representa el servicio de apertura de cuenta" class="img-fluid rounded"
                             loading="lazy">
                         <h3 class="pt-2">Cuentas Bancarias</h3>
@@ -98,7 +97,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <a href="" class="text-reset text-decoration-none">
-                        <img src="{{ asset('../img/home/prestamos.png') }}" alt="prestamos y creditos"
+                        <img src="{{ asset('../img/home/servicios/cobros.png') }}" alt="prestamos y creditos"
                             class="img-fluid rounded" loading="lazy">
                         <h3 class="pt-2">Préstamos y Créditos</h3>
                         <p class="fw-medium lh-base">
@@ -108,7 +107,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <a href="" class="text-reset text-decoration-none">
-                        <img src="{{ asset('../img/home/tarjeta.png') }}"
+                        <img src="{{ asset('../img/home/servicios/tarjeta.png') }}"
                             alt="representacion del servicio de tarjetas de creditos" class="img-fluid rounded"
                             loading="lazy">
                         <h3 class="pt-2">Emisión de Tarjetas Bancarias</h3>
@@ -119,8 +118,8 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <a href="" class="text-reset text-decoration-none">
-                        <img src="{{ asset('../img/home/soporte.png') }}" alt="representación del servicio al cliente 24/7"
-                            class="img-fluid rounded" loading="lazy">
+                        <img src="{{ asset('../img/home/servicios/soporte.png') }}"
+                            alt="representación del servicio al cliente 24/7" class="img-fluid rounded" loading="lazy">
                         <h3 class="pt-2">Atención y Soporte al Cliente</h3>
                         <p class="fw-medium lh-base">
                             Disponibilidad de atención telefónica y en línea para resolver dudas y problemas.
@@ -158,46 +157,50 @@
                     </p>
                 </div>
             </x-shared.centered-container-lg>
-            <div class="nav nav-pills d-flex justify-content-center gap-3" id="nav-tab" role="tablist">
-                <button class="nav-link py-3 px-4 active" id="nav-mercado-tab" data-bs-toggle="tab"
-                    data-bs-target="#nav-mercado" type="button" role="tab" aria-controls="nav-mercado"
-                    aria-selected="true">
+            <div class="nav nav-pills d-flex justify-content-md-center gap-2" id="nav-tab" role="tablist">
+
+                <button class="nav-link border px-4 py-3 active flex-grow-1 flex-lg-grow-0" id="nav-mercado-tab"
+                    data-bs-toggle="tab" data-bs-target="#nav-mercado" type="button" role="tab"
+                    aria-controls="nav-mercado" aria-selected="true">
                     Supermercados
                 </button>
-                <button class="nav-link py-3 px-4" id="nav-tiendas-tab" data-bs-toggle="tab"
-                    data-bs-target="#nav-tiendas" type="button" role="tab" aria-controls="nav-tiendas"
-                    aria-selected="false">
-                    Tiendas de Ropa
-                </button>
-                <button class="nav-link py-3 px-4" id="nav-restaurante-tab" data-bs-toggle="tab"
-                    data-bs-target="#nav-restaurante" type="button" role="tab" aria-controls="nav-restaurante"
-                    aria-selected="false">
+
+                <button class="nav-link border px-4 py-3 flex-grow-1 flex-lg-grow-0" id="nav-restaurante-tab"
+                    data-bs-toggle="tab" data-bs-target="#nav-restaurante" type="button" role="tab"
+                    aria-controls="nav-restaurante" aria-selected="false">
                     Restaurantes
                 </button>
-                <button class="nav-link py-3 px-4" id="nav-informatica-tab" data-bs-toggle="tab"
-                    data-bs-target="#nav-informatica" type="button" role="tab" aria-controls="nav-informatica"
-                    aria-selected="false">
+                <button class="nav-link border px-4 py-3 flex-grow-1 flex-lg-grow-0" id="nav-tiendas-tab"
+                    data-bs-toggle="tab" data-bs-target="#nav-tiendas" type="button" role="tab"
+                    aria-controls="nav-tiendas" aria-selected="false">
+                    Tiendas de Ropa
+                </button>
+
+                <button class="nav-link border px-4 py-3 flex-shrink-1 flex-lg-shrink-0 align-items-start"
+                    id="nav-informatica-tab" data-bs-toggle="tab" data-bs-target="#nav-informatica" type="button"
+                    role="tab" aria-controls="nav-informatica" aria-selected="false">
                     Tiendas de informática
                 </button>
             </div>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active text-dark" id="nav-mercado" role="tabpanel"
-                    aria-labelledby=" nav-mercado-tab" tabindex="0">
-                    @include('home.mercado')
-                </div>
-                <div class="tab-pane fade text-dark" id="nav-tiendas" role="tabpanel" aria-labelledby="nav-tiendas-tab"
-                    tabindex="0">
-                    @include('home.ropa')
-                </div>
-                <div class="tab-pane fade text-dark" id="nav-restaurante" role="tabpanel"
-                    aria-labelledby="nav-restaurante-tab" tabindex="0">
-                    @include('home.restaurante')
-                </div>
-                <div class="tab-pane fade text-dark" id="nav-informatica" role="tabpanel"
-                    aria-labelledby="nav-informatica-tab" tabindex="0">
-                    @include('home.informatica')
-                </div>
+        </div>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active text-dark" id="nav-mercado" role="tabpanel"
+                aria-labelledby=" nav-mercado-tab" tabindex="0">
+                @include('home.mercado')
             </div>
+            <div class="tab-pane fade text-dark" id="nav-tiendas" role="tabpanel" aria-labelledby="nav-tiendas-tab"
+                tabindex="0">
+                @include('home.ropa')
+            </div>
+            <div class="tab-pane fade text-dark" id="nav-restaurante" role="tabpanel"
+                aria-labelledby="nav-restaurante-tab" tabindex="0">
+                @include('home.restaurante')
+            </div>
+            <div class="tab-pane fade text-dark" id="nav-informatica" role="tabpanel"
+                aria-labelledby="nav-informatica-tab" tabindex="0">
+                @include('home.informatica')
+            </div>
+        </div>
         </div>
     </x-shared.text-center>
 @endsection

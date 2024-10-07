@@ -8,6 +8,12 @@ body {
     object-fit: cover;
 }
 
+@media screen and (min-width: 768px) {
+    .carousel-inner {
+        max-height: 480px;
+    }
+}
+
 /*Estilos para pantalla de 480px celular gama media*/
 @media screen and (min-width: 992px) {
     .img-banner {
