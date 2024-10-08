@@ -57,7 +57,7 @@
         @endif
 
         <!-- Incluir el componente para crear un registro -->
-      @include("municipio.store")
+      @include("municipio.create")
     </x-shared.contenedor-primario>
 @endsection
 @section('scripts')
