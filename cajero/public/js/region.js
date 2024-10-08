@@ -40,19 +40,6 @@ async function filtrar(textoBusqueda, paginaInicial = 1) {
 
             mostrarRegistros(datos);
         }
-        /*
-        if (datos.message) {
-            // Mostramos el mensaje en la interfaz de usuario
-            tabla[0].classList.add("d-none");
-
-            // Remueve la clase d-none del elemento
-            sinDatosApi[0].classList.remove("d-none");
-        } else {
-            tabla[0].classList.remove("d-none");
-            sinDatosApi[0].classList.add("d-none");
-
-            mostrarRegistros(datos);
-        }*/
     }
 }
 
