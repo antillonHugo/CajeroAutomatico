@@ -32,7 +32,7 @@
                         <tbody class="tbody">
                             @foreach ($paises as $pais)
                                 <!-- Incluir el componente para editar el registro-->
-                                @include('pais.edit')
+                                @include('pais.create')
 
                                 <!-- Incluir el componente para eliminar un registro -->
                                 @include('pais.destroy')
