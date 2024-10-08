@@ -32,7 +32,7 @@
                         <tbody class="tbody">
                             @foreach ($paises as $pais)
                                 <!-- Incluir el componente para editar el registro-->
-                                @include('pais.create')
+                                @include('pais.edit')
 
                                 <!-- Incluir el componente para eliminar un registro -->
                                 @include('pais.destroy')
@@ -58,7 +58,7 @@
         @endif
 
         <!-- Incluir el componente para crear un registro -->
-        @include('pais.store')
+        @include('pais.create')
     </x-shared.contenedor-primario>
 @endsection
 @section('scripts')
