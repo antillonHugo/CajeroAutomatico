@@ -64,7 +64,18 @@
                 </form>
             @endif
         </div>
-
+        <div class="col-12">
+            <!-- Mostrar errores de validación -->
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
         <div class="col-lg-12">
             @if ($clientes->count() > 0)
                 <div class="row justify-content-end">
@@ -114,6 +125,8 @@
                 <x-alert.mensaje-sin-resultados></x-alert.mensaje-sin-resultados>
             @endif
         </div>
+
+        @include('cliente.create')
     </x-shared.contenedor-secundario>
 @endsection
 @section('scripts')
