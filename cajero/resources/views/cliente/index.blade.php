@@ -69,7 +69,36 @@
             @if ($clientes->count() > 0)
                 <div class="row justify-content-end">
                     <div class="col-12">
-                        @include('cliente.lista')
+                        <div class="table-responsive">
+                            <table class="table table-hover user-select-none cursor-default caption-top">
+                                <caption>Lista de Clientes</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Apellido</th>
+                                        <th scope="col">Dui</th>
+                                        <th scope="col" class="text-nowrap">Fecha de Nacimiento</th>
+                                        <th scope="col">Celular</th>
+                                        <th scope="col">Correo</th>
+                                        <th scope="col">País</th>
+                                        <th scope="col">Departamento</th>
+                                        <th scope="col">Municipio</th>
+                                        <th scope="col" class="text-end">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbody">
+                                    @foreach ($clientes as $cliente)
+                                        {{-- incluimos el componente para editar un cliente --}}
+                                        @include('cliente.edit')
+
+                                        {{-- incluimos el componente para eliminar un cliente --}}
+                                        @include('cliente.destroy')
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
                         <div class="d-none contenedorSinDatos">
                             <!-- componente para mostrar cuando el buscador no encuentra resultados al filtrar datos -->
                             <x-alert.mensaje-sin-resultados></x-alert.mensaje-sin-resultados>

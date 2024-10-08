@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <ul class="navbar-nav d-flex flex-row justify-content-evenly w-100">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('pais.index') }}">País</a>
+                    <a class="nav-link active" href="{{ route('pais.index') }}">Países</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('departamento.index') }}">Departamentos</a>

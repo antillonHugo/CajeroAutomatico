@@ -19,7 +19,29 @@
                 <x-form.buscador></x-forms.form.buscador>
             </div>
             <div class="col-lg-12">
-                @include('./pais.lista')
+                <div class="table-responsive">
+                    <table class="table table-hover user-select-none cursor-default caption-top">
+                        <caption>Lista de Paises</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">País</th>
+                                <th scope="col" class="text-end">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            @foreach ($paises as $pais)
+                                <!-- Incluir el componente para editar el registro-->
+                                @include('pais.edit')
+
+                                <!-- Incluir el componente para eliminar un registro -->
+                                @include('pais.destroy')
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+
 
                 <div class="d-none contenedorSinDatos">
                     <!-- componente para mostrar cuando el buscador no encuentra resultados al filtrar datos -->
@@ -35,25 +57,8 @@
             <x-alert.mensaje-sin-resultados></x-alert.mensaje-sin-resultados>
         @endif
 
-        <!-- Incluir el componente de modal para crear el registro de un país -->
-        @component('components.modal.modal', ['id' => 'modalPais', 'title' => 'Nuevo País'])
-            <!-- Contenido del formulario para agregar país -->
-            <form action="{{ route('pais.store') }}" method="POST">
-                @csrf
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="pais" name="pais"
-                                placeholder="Agregar país...">
-                            <label for="pais">País</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Guardar" class="btn btn-primary my-3">
-                        </div>
-                    </div>
-                </div>
-            </form>
-        @endcomponent
+        <!-- Incluir el componente para crear un registro -->
+        @include('pais.store')
     </x-shared.contenedor-primario>
 @endsection
 @section('scripts')

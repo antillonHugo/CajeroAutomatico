@@ -8,6 +8,7 @@ use App\Models\Cliente;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClienteFormRequest;
+use App\Models\Pais;
 
 class ClienteController extends Controller
 {
@@ -27,7 +28,10 @@ class ClienteController extends Controller
         // Obtener todos los municipios
         $municipios = Municipio::all();
 
-        return view('cliente.index', compact('clientes', 'departamentos', 'municipios'));
+        // Obtener todos los paìses
+        $paises = Pais::all();
+
+        return view('cliente.index', compact('clientes', 'departamentos', 'municipios', 'paises'));
     }
 
     /**
@@ -82,9 +86,16 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(ClienteFormRequest $request, $cod_cliente)
     {
-        //
+        // Verificar si el cliente existe
+        $cliente = Cliente::findOrFail($cod_cliente);
+
+        // Obtener los datos validados
+        // $nuevoNombre = $request->input('pais');
+
+        // Verificar si ya existe un país con el mismo nombre
+        // $paisExistente = Pais::where('pais', $nuevoNombre)->first();
     }
 
     /**

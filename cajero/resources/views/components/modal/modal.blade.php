@@ -8,8 +8,7 @@
             </div>
             <div class="modal-body">
                 {{ $slot }}
-
-                <div class="message-error">
+                {{-- <div class="message-error">
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <ul>
@@ -19,9 +18,8 @@
                             </ul>
                         </div>
                     @endif
-                </div>
+                </div> --}}
             </div>
-            <div class="modal-footer"></div>
         </div>
     </div>
 </div>

@@ -55,7 +55,7 @@ const filtrarClientes = async (filtros, paginaInicial = 1) => {
 //crea la interfaz para mostrar los clientes
 const mostrarClientes = (clientes) => {
     let content_tbody = ``;
-
+    console.log(clientes);
     clientes.data.forEach((cliente) => {
         content_tbody += `
     <tr>

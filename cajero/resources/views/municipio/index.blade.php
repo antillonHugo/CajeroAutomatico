@@ -18,7 +18,29 @@
                 <x-form.buscador></x-forms.form.buscador>
             </div>
             <div class="col-lg-12">
-                @include('municipio.lista')
+                <div class="table-responsive">
+                    <table class="table table-hover user-select-none cursor-default caption-top">
+                        <caption>Lista de Municipios</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Municipio</th>
+                                <th scope="col" class="text-end">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            @foreach ($municipios as $municipio)
+                                <!-- Incluir el componente para editar el registro -->
+                                @include('municipio.edit')
+
+                                <!-- Incluir el componente para eliminar un registro  -->
+                                @include('municipio.destroy')
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+
 
                 <div class="d-none contenedorSinDatos">
                     <!-- componente para mostrar cuando el buscador no encuentra resultados al filtrar datos-->
@@ -34,25 +56,8 @@
             <x-alert.mensaje-sin-resultados></x-alert.mensaje-sin-resultados>
         @endif
 
-        <!-- Incluir el componente de modal para crear el registro un municipio -->
-        @component('components.modal.modal', ['id' => 'modalMunicipio', 'title' => 'Nuevo Municipio'])
-            <!-- Contenido del formulario para agregar un municipio -->
-            <form action="{{ route('municipio.store') }}" method="POST">
-                @csrf
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="municipio" name="municipio"
-                                placeholder="Agregar municipio...">
-                            <label for="municipio">Municipio</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Guardar" class="btn btn-primary my-3">
-                        </div>
-                    </div>
-                </div>
-            </form>
-        @endcomponent
+        <!-- Incluir el componente para crear un registro -->
+      @include("municipio.store")
     </x-shared.contenedor-primario>
 @endsection
 @section('scripts')

@@ -30,7 +30,7 @@ class ClienteFormRequest extends FormRequest
             'fecha_de_nacimiento' => 'required|string',
             'celular' => 'required|int|max:9|unique:clientes',
             'correo' => 'required|string|max:50|unique:clientes',
-            'cod_pais' => 'required|int|max:9|exists:paises',
+            'cod_pais' => 'required|int|max:9|exists:paises,cod_pais',
             'cod_departamento' => 'required|int|exists:departamentos,cod_departamento',
             'cod_municipio' => 'required|int|exists:municipios,cod_municipio'
         ];
