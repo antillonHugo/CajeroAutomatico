@@ -18,8 +18,7 @@ class ClienteController extends Controller
 
     public function index()
     {
-        // Cargar clientes con sus departamentos
-        // $clientes = Cliente::with('departamento');
+        // Cargar clientes
         $clientes = Cliente::all();
 
         // Obtener todos los departamentos
@@ -39,32 +38,20 @@ class ClienteController extends Controller
      */
     public function create(ClienteFormRequest $request)
     {
-        /* $validatedData = $request->validate([
-            'primer_nombre' => 'required|string|max:255',
-            'segundo_nombre' => 'nullable|string|max:255',
-            'primer_apellido' => 'required|string|max:255',
-            'segundo_apellido' => 'nullable|string|max:255',
-            'dui' => 'required|string|max:10',
-            'fecha_de_nacimiento' => 'required|date',
-            'celular' => 'required|string|max:15',
-            'correo' => 'required|email|max:255',
-            'cod_pais' => 'required|integer',
-            'cod_departamento' => 'required|integer',
-            'cod_municipio' => 'required|integer',
-        ]);*/
-
-        Cliente::create($request);
-
-        return redirect()->route('cliente.index')->with('success', 'Cliente creado exitosamente.');
-        //return view('cliente.create', compact('departamentos', 'municipios'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ClienteFormRequest $request)
     {
-        //
+        // Aquí puedes acceder a los datos validados
+        $validarDatos = $request->validated();
+
+        // Guardar los datos validados en la base de datos
+        Cliente::create($validarDatos);
+
+        return redirect()->back()->with('success', 'Cliente registrado exitosamente.');
     }
 
     /**
@@ -88,6 +75,14 @@ class ClienteController extends Controller
      */
     public function update(ClienteFormRequest $request, $cod_cliente)
     {
+
+        // Aquí puedes acceder a los datos validados
+        $validatedData = $request->validated();
+
+        // Pasar los datos validados a la vista
+        return view('cliente.index', ['datos' => $validatedData]);
+
+
         // Verificar si el cliente existe
         $cliente = Cliente::findOrFail($cod_cliente);
 
