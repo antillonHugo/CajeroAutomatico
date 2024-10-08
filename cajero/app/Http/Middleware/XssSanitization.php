@@ -18,7 +18,7 @@ class XssSanitization
 
         array_walk_recursive($input, function (&$input) {
             // Permitimos letras con acentos, ñ y eliminamos otros caracteres especiales
-            $input = preg_replace('/[^A-Za-z0-9áéíóúÁÉÍÓÚñÑ\- ]/', '', $input);
+            $input = preg_replace('/[^A-Za-z0-9áéíóúÁÉÍÓÚñÑ\- @]/', '', $input);
             // Eliminamos los espacios en blanco
             $input = trim($input);
         });
