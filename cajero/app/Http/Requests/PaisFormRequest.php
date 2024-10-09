@@ -25,8 +25,10 @@ class PaisFormRequest extends FormRequest
      */
     public function rules(): array
     {
+        $cod_pais = $this->route('cod_pais'); // Obtener el ID del registro actual desde la ruta
+
         return [
-            'pais' => 'required|string|max:50'
+            'pais' => 'required|string|max:50|unique:paises,pais,' . $cod_pais . ',cod_pais',
         ];
     }
 
@@ -35,7 +37,8 @@ class PaisFormRequest extends FormRequest
     {
         return [
             'pais.required' => 'El pais es obligatorio.',
-            'pais.max' => 'El nombre del país no debe exceder los 50 caracteres.'
+            'pais.max' => 'El nombre del país no debe exceder los 50 caracteres.',
+            'pais.unique' => 'El país ya está registrado en la base de datos.',
         ];
     }
 }

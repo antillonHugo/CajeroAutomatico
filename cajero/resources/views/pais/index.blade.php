@@ -18,6 +18,18 @@
                 <!-- componente para mostrar el formulario de busqueda o filtro -->
                 <x-form.buscador></x-forms.form.buscador>
             </div>
+            <div class="col-12">
+                <!-- Mostrar errores de validación -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
             <div class="col-lg-12">
                 <div class="table-responsive">
                     <table class="table table-hover user-select-none cursor-default caption-top">
@@ -31,7 +43,7 @@
                         </thead>
                         <tbody class="tbody">
                             @foreach ($paises as $pais)
-                                <!-- Incluir el componente para editar el registro-->
+                                <!-- Incluir el componente para editar un registro-->
                                 @include('pais.edit')
 
                                 <!-- Incluir el componente para eliminar un registro -->
@@ -41,8 +53,6 @@
                         </tbody>
                     </table>
                 </div>
-
-
                 <div class="d-none contenedorSinDatos">
                     <!-- componente para mostrar cuando el buscador no encuentra resultados al filtrar datos -->
                     <x-alert.mensaje-sin-resultados></x-alert.mensaje-sin-resultados>
@@ -60,6 +70,9 @@
         <!-- Incluir el componente para crear un registro -->
         @include('pais.create')
     </x-shared.contenedor-primario>
+    @if (session('tipo'))
+        <x-alert.alert-toast :mensaje="session('mensaje')" :tipo="session('tipo')" />
+    @endif
 @endsection
 @section('scripts')
     <!--archivo js para el buscador de los formularios-->
