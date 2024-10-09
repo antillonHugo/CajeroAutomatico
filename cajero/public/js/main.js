@@ -18,6 +18,13 @@ window.addEventListener("load", function () {
     } else if (solicitudApi === "cliente") {
         filtrarClientes("", 1); //inicializa la función
     }
+
+    //cuando la página se cargue el Toast se muestre automáticamente
+    var toastElList = [].slice.call(document.querySelectorAll(".toast"));
+    var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl);
+    });
+    toastList.forEach((toast) => toast.show());
 });
 
 //permite obtener la solicitud API que puede ser departamento, país o municipio etc desde la url
