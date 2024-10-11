@@ -32,17 +32,19 @@ class MunicipioController extends Controller
      */
     public function store(MunicipioFormRequest $request)
     {
-        $municipio = Municipio::firstOrCreate([
-            'municipio' => $request->input('municipio')
-        ]);
+        // Validar y obtener los datos
+        $datosValidados = $request->validated();
 
-        if ($municipio->wasRecentlyCreated) {
+        // Intentar crear el municipio
+        $municipio = Municipio::create($datosValidados);
+
+        if ($municipio) {
             // El registro fue creado
             return redirect()->back()->with('success', 'El municipio ha sido creado exitosamente.');
-        } else {
-            // El registro ya existía
-            return redirect()->back()->with('info', 'El municipio ya existe.');
         }
+
+        // Si la creación falla, redirige con un mensaje de error
+        return redirect()->back()->with('error', 'No se pudo crear el municipio');
     }
 
     /**
@@ -66,41 +68,37 @@ class MunicipioController extends Controller
      */
     public function update(MunicipioFormRequest $request, $cod_municipio)
     {
-        // Encuentra el registro existente por su ID
+        // Encuentra el municipio por su ID
         $municipio = Municipio::findOrFail($cod_municipio);
 
-        // Obtener los datos validados
-        $nuevoNombre = $request->input('municipio');
+        // Intenta actualizar el municipio con los datos validados
+        $actualizacion = $municipio->update($request->validated());
 
-        // Verificar si ya existe un municipio con el mismo nombre
-        $municipioExistente = Municipio::where('municipio', $nuevoNombre)->first();
-
-        if ($municipioExistente && $municipioExistente->cod_municipio != $cod_municipio) {
-            // Si existe otro municipio con el mismo nombre, devolver un error
-            return redirect()->back()->with('info', 'El nombre del municipio ya existe.');
+        // Verifica si la actualización fue exitosa
+        if ($actualizacion) {
+            return redirect()->back()->with('success', 'Municipio actualizado correctamente');
         }
 
-        // Actualizar el registro existente
-        $municipio->municipio = $nuevoNombre;
-        $municipio->save();
-
-        return redirect()->back()->with('success', 'El municipio ha sido actualizado exitosamente.');
+        // Si la actualización falla, redirige con un mensaje de error
+        return redirect()->back()->with('error', 'No se pudo actualizar el municipio');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy($cod_municipio)
     {
-        $municipio = Municipio::findOrFail($cod_municipio);
+        // Encuentra el municipio por su ID
+        $municipio = Municipio::find($cod_municipio);
 
-        // Verificamos si el municipio existe
-        if (!$municipio) {
-            return redirect()->route('municipio.index')->withErrors('municipio no encontrado.');
+        // Si el municipio existe, elimínalo
+        if ($municipio) {
+            $municipio->delete();
+            return redirect()->back()->with('success', 'Municipio eliminado con éxito');
         }
 
-        $municipio->delete();
-        // Retornar la vista con los datos de los municipios
-        return redirect()->route('municipio.index')->with('success', 'municipio eliminado exitosamente.');
+        // Si el municipio no existe, devuelve un error
+        return redirect()->back()->with('error', 'Municipio no encontrado');
     }
 }
