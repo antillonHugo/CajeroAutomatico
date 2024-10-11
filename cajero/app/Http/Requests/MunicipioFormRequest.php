@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class MunicipioFormRequest extends FormRequest
 {
@@ -21,8 +22,15 @@ class MunicipioFormRequest extends FormRequest
      */
     public function rules(): array
     {
+        $cod_municipio = $this->route('municipio'); // Obtiene el ID del municipio desde la ruta
+
         return [
-            'municipio' => 'required|string|max:30'
+            'municipio' => [
+                'required',
+                'string',
+                'max:30',
+                Rule::unique('municipios', 'municipio')->ignore($cod_municipio, 'cod_municipio'),
+            ],
         ];
     }
 
