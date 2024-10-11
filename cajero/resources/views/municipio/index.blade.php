@@ -57,8 +57,13 @@
         @endif
 
         <!-- Incluir el componente para crear un registro -->
-      @include("municipio.create")
+        @include('municipio.create')
     </x-shared.contenedor-primario>
+
+    {{-- muestra la alerta toast  --}}
+    @if (session('success') || session('error'))
+        <x-alert.alert-toast></x-alert.alert-toast>
+    @endif
 @endsection
 @section('scripts')
     <!--archivo js para el buscador de los formularios-->
