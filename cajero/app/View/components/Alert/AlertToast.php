@@ -8,17 +8,11 @@ use Illuminate\View\Component;
 
 class AlertToast extends Component
 {
-
-    public $mensaje;
-    public $tipo;
-
     /**
      * Create a new component instance.
      */
-    public function __construct($mensaje, $tipo = 'success')
+    public function __construct()
     {
-        $this->mensaje = $mensaje;
-        $this->tipo = $tipo;
     }
 
     /**
