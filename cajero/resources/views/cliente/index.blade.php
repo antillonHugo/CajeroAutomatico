@@ -65,16 +65,8 @@
             @endif
         </div>
         <div class="col-12">
-            <!-- Mostrar errores de validación -->
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            {{-- componente que nos permitira mostrar errores de validacion --}}
+            <x-alert.alert-validation />
         </div>
         <div class="col-lg-12">
             @if ($clientes->count() > 0)

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class DepartamentoFormRequest extends FormRequest
 {
@@ -21,9 +22,15 @@ class DepartamentoFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        // 
+        $cod_departamento = $this->route('departamento'); // Obtiene el ID del departamento desde la ruta
+
         return [
-            'departamento' => 'required|string|max:50'
+            'departamento' => [
+                'required',
+                'string',
+                'max:25',
+                Rule::unique('departamentos', 'departamento')->ignore($cod_departamento, 'cod_departamento'),
+            ]
         ];
     }
 
@@ -32,7 +39,7 @@ class DepartamentoFormRequest extends FormRequest
     {
         return [
             'departamento.required' => 'El departamento es obligatorio.',
-            'departamento.max' => 'El nombre del departamento no debe exceder los 50 caracteres.'
+            'departamento.max' => 'El nombre del departamento no debe exceder los 25 caracteres.'
         ];
     }
 }

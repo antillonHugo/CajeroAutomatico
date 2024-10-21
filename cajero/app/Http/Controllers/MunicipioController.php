@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Municipio;
-use Illuminate\Http\Request;
 use App\Http\Requests\MunicipioFormRequest;
 
 class MunicipioController extends Controller
@@ -13,7 +12,6 @@ class MunicipioController extends Controller
      */
     public function index()
     {
-        //
         $municipios = Municipio::all();
 
         return view('municipio.index', compact('municipios'));
@@ -32,7 +30,7 @@ class MunicipioController extends Controller
      */
     public function store(MunicipioFormRequest $request)
     {
-        // Validar y obtener los datos
+        // accedemos a los datos validados
         $datosValidados = $request->validated();
 
         // Intentar crear el municipio

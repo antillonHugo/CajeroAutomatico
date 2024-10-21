@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PaisFormRequest extends FormRequest
 {
@@ -25,10 +26,15 @@ class PaisFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        $cod_pais = $this->route('cod_pais'); // Obtener el ID del registro actual desde la ruta
+        $cod_pais = $this->route('pais'); // Obtiene el ID del país desde la ruta
 
         return [
-            'pais' => 'required|string|max:50|unique:paises,pais,' . $cod_pais . ',cod_pais',
+            'pais' => [
+                'required',
+                'string',
+                'max:50',
+                Rule::unique('paises', 'pais')->ignore($cod_pais, 'cod_pais'),
+            ],
         ];
     }
 
@@ -37,8 +43,7 @@ class PaisFormRequest extends FormRequest
     {
         return [
             'pais.required' => 'El pais es obligatorio.',
-            'pais.max' => 'El nombre del país no debe exceder los 50 caracteres.',
-            'pais.unique' => 'El país ya está registrado en la base de datos.',
+            'pais.max' => 'El nombre del país no debe exceder los 25 caracteres.',
         ];
     }
 }

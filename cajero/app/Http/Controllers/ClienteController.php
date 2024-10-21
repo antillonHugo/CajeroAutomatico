@@ -36,16 +36,14 @@ class ClienteController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(ClienteFormRequest $request)
-    {
-    }
+    public function create(ClienteFormRequest $request) {}
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(ClienteFormRequest $request)
     {
-        // Aquí puedes acceder a los datos validados
+        // accedemos a los datos validados
         $validarDatos = $request->validated();
 
         // Guardar los datos validados en la base de datos
@@ -75,13 +73,11 @@ class ClienteController extends Controller
      */
     public function update(ClienteFormRequest $request, $cod_cliente)
     {
-
-        // Aquí puedes acceder a los datos validados
+        // accedemos a los datos validados
         $validatedData = $request->validated();
 
         // Pasar los datos validados a la vista
         return view('cliente.index', ['datos' => $validatedData]);
-
 
         // Verificar si el cliente existe
         $cliente = Cliente::findOrFail($cod_cliente);

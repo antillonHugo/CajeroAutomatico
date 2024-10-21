@@ -5,7 +5,7 @@
     <!-- Contenido del formulario para editar un registro -->
     <form action="{{ route('municipio.update', $municipio->cod_municipio) }}" method="POST">
         @csrf
-        @method('PUT')
+        @method('PATCH')
         <!-- Campos del formulario -->
         <div class="row">
             <div class="col mb-3">

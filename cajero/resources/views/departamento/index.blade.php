@@ -19,6 +19,11 @@
                 <!-- componente para mostrar el formulario de busqueda o filtro -->
                 <x-form.buscador></x-forms.form.buscador>
             </div>
+            <div class="col-12">
+                {{-- componente que nos permitira mostrar errores de validacion --}}
+                <x-alert.alert-validation />
+            </div>
+
             <div class="col-lg-12">
                 <div class="table-responsive">
                     <table class="table table-hover user-select-none cursor-default caption-top">
@@ -59,6 +64,10 @@
         <!-- Incluir el componente para crear un registro -->
         @include('departamento.create')
     </x-shared.contenedor-primario>
+    {{-- muestra la alerta toast  --}}
+    @if (session('success') || session('error'))
+        <x-alert.alert-toast></x-alert.alert-toast>
+    @endif
 @endsection
 @section('scripts')
     <!--archivo js para el buscador de los formularios-->

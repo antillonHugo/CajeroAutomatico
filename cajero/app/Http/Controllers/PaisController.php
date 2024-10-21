@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pais;
 use App\Http\Requests\PaisFormRequest;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 
 class PaisController extends Controller
 {
@@ -29,21 +29,19 @@ class PaisController extends Controller
      */
     public function store(PaisFormRequest $request)
     {
-        // Aquí puedes acceder a los datos validados
+        // accedemos a los datos validados
         $validarDatos = $request->validated();
 
         // Guardar los datos validados en la base de datos
-        $respuesta = Pais::create($validarDatos);
+        $pais = Pais::create($validarDatos);
 
-        if ($respuesta) {
-            $mensaje = 'País registrado exitosamente.';
-            $tipo = 'success';
-        } else {
-            $mensaje = 'No se pudo registrar el país. Inténtalo de nuevo.';
-            $tipo = 'danger';
+        if ($pais) {
+            // El registro fue creado
+            return redirect()->back()->with('success', 'El país ha sido creado exitosamente.');
         }
 
-        return redirect()->back()->with(['mensaje' => $mensaje, 'tipo' => $tipo]);
+        // Si la creación falla, redirige con un mensaje de error
+        return redirect()->back()->with('error', 'No se pudo crear el país');
     }
 
     /**
@@ -64,18 +62,19 @@ class PaisController extends Controller
      */
     public function update(PaisFormRequest $request, $cod_pais)
     {
+        // Encuentra el país por su ID
         $pais = Pais::findOrFail($cod_pais);
-        $respuesta = $pais->update($request->validated());
 
-        if ($respuesta) {
-            $mensaje = 'El país se actualizó exitosamente.';
-            $tipo = 'success';
-        } else {
-            $mensaje = 'No se pudo actualizar el país. Inténtalo de nuevo.';
-            $tipo = 'danger';
+        // Intenta actualizar el país con los datos validados
+        $actualizacion = $pais->update($request->validated());
+
+        // Verifica si la actualización fue exitosa
+        if ($actualizacion) {
+            return redirect()->back()->with('success', 'País actualizado correctamente');
         }
 
-        return redirect()->back()->with(['mensaje' => $mensaje, 'tipo' => $tipo]);
+        // Si la actualización falla, redirige con un mensaje de error
+        return redirect()->back()->with('error', 'No se pudo actualizar el país');
     }
 
     /**
@@ -83,17 +82,16 @@ class PaisController extends Controller
      */
     public function destroy($cod_pais)
     {
-        $pais = Pais::findOrFail($cod_pais);
-        $respuesta = $pais->delete();
+        // Encuentra el país por su ID
+        $pais = Pais::find($cod_pais);
 
-        if ($respuesta) {
-            $mensaje = 'País eliminado correctamente.';
-            $tipo = 'success';
-        } else {
-            $mensaje = 'No se pudo eliminar el país. Inténtalo de nuevo.';
-            $tipo = 'danger';
+        // Si el país existe, elimínalo
+        if ($pais) {
+            $pais->delete();
+            return redirect()->back()->with('success', 'País eliminado con éxito');
         }
 
-        return redirect()->back()->with(['mensaje' => $mensaje, 'tipo' => $tipo]);
+        // Si el país no existe, devuelve un error
+        return redirect()->back()->with('error', 'País no encontrado');
     }
 }

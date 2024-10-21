@@ -2,7 +2,7 @@
     <!-- Contenido del formulario para editar país -->
     <form action="{{ route('pais.update', $pais->cod_pais) }}" method="POST">
         @csrf
-        @method('PUT')
+        @method('PATCH')
         <!-- Campos del formulario -->
         <div class="row">
             <div class="col mb-3">

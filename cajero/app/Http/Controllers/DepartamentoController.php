@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Departamento;
-use Illuminate\Http\Request;
 use App\Http\Requests\DepartamentoFormRequest;
 
 class DepartamentoController extends Controller
@@ -31,18 +30,19 @@ class DepartamentoController extends Controller
      */
     public function store(DepartamentoFormRequest $request)
     {
-        //firstOrCreate es equivalente a create 
-        $departamento = Departamento::firstOrCreate([
-            'departamento' => $request->input('departamento')
-        ]);
+        // accedemos a los datos validados
+        $validarDatos = $request->validated();
 
-        if ($departamento->wasRecentlyCreated) {
+        // Guardar los datos validados en la base de datos
+        $departamento = Departamento::create($validarDatos);
+
+        if ($departamento) {
             // El registro fue creado
             return redirect()->back()->with('success', 'El departamento ha sido creado exitosamente.');
-        } else {
-            // El registro ya existía
-            return redirect()->back()->with('info', 'El departamento ya existe.');
         }
+
+        // Si la creación falla, redirige con un mensaje de error
+        return redirect()->back()->with('error', 'No se pudo crear el departamento');
     }
 
     /**
@@ -66,26 +66,19 @@ class DepartamentoController extends Controller
      */
     public function update(DepartamentoFormRequest $request, $cod_departamento)
     {
-        // Encuentra el registro existente por su ID
-        $departamento = Departamento::findOrFail($cod_departamento);
+        // Encuentra el departamento por su ID
+        $pais = Departamento::findOrFail($cod_departamento);
 
-        // Obtener los datos validados
-        $nuevoDepartamento = $request->input('departamento');
+        // Intenta actualizar el departamento con los datos validados
+        $actualizacion = $pais->update($request->validated());
 
-        // Verificar si ya existe un departamento con el mismo nombre
-        $departamentoExistente = Departamento::where('departamento', $nuevoDepartamento)->first();
-
-        if ($departamentoExistente && $departamentoExistente->cod_departamento != $cod_departamento) {
-            // Si existe otro departamento con el mismo nombre, devolver un error
-            return redirect()->back()->with('info', 'El nombre del departamento ya existe.');
+        // Verifica si la actualización fue exitosa
+        if ($actualizacion) {
+            return redirect()->back()->with('success', 'Departamento actualizado correctamente');
         }
 
-        // Actualizar el registro existente
-        $departamento->departamento = $nuevoDepartamento;
-        $departamento->save();
-
-        // Redirige con un mensaje de éxito
-        return redirect()->back()->with('success', 'El departamento ha sido actualizado exitosamente.');
+        // Si la actualización falla, redirige con un mensaje de error
+        return redirect()->back()->with('error', 'No se pudo actualizar el departamento');
     }
 
     /**
@@ -93,15 +86,16 @@ class DepartamentoController extends Controller
      */
     public function destroy($cod_departamento)
     {
-        $departamento = Departamento::findOrFail($cod_departamento);
+        // Encuentra el país por su ID
+        $departamento = Departamento::find($cod_departamento);
 
-        // Verificamos si el departamento existe
-        if (!$departamento) {
-            return redirect()->route('departamento.index')->withErrors('Departamento no encontrado.');
+        // Si el país existe, elimínalo
+        if ($departamento) {
+            $departamento->delete();
+            return redirect()->back()->with('success', 'Departamento eliminado con éxito');
         }
 
-        $departamento->delete();
-        // Retornar la vista con los datos de los departamentos
-        return redirect()->route('departamento.index')->with('success', 'Departamento eliminado exitosamente.');
+        // Si el país no existe, devuelve un error
+        return redirect()->back()->with('error', 'País no encontrado');
     }
 }

@@ -23,7 +23,7 @@ class MunicipioFormRequest extends FormRequest
     public function rules(): array
     {
         $cod_municipio = $this->route('municipio'); // Obtiene el ID del municipio desde la ruta
-
+   
         return [
             'municipio' => [
                 'required',

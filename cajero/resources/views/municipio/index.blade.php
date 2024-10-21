@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Lista de Departamentos')
+@section('title', 'Lista de Municipios')
 @section('content')
     <x-shared.contenedor-primario>
         <div class="col-12">
@@ -16,6 +16,10 @@
             <div class="col col-lg-8 py-md-3">
                 <!-- componente para mostrar el formulario de busqueda o filtro  -->
                 <x-form.buscador></x-forms.form.buscador>
+            </div>
+            <div class="col-12">
+                {{-- componente que nos permitira mostrar errores de validacion --}}
+                <x-alert.alert-validation/>
             </div>
             <div class="col-lg-12">
                 <div class="table-responsive">

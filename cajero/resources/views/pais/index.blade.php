@@ -19,16 +19,8 @@
                 <x-form.buscador></x-forms.form.buscador>
             </div>
             <div class="col-12">
-                <!-- Mostrar errores de validación -->
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                {{-- componente que nos permitira mostrar errores de validacion --}}
+                <x-alert.alert-validation/>
             </div>
             <div class="col-lg-12">
                 <div class="table-responsive">
@@ -70,8 +62,10 @@
         <!-- Incluir el componente para crear un registro -->
         @include('pais.create')
     </x-shared.contenedor-primario>
-    @if (session('tipo'))
-        <x-alert.alert-toast :mensaje="session('mensaje')" :tipo="session('tipo')" />
+
+    {{-- muestra la alerta toast  --}}
+    @if (session('success') || session('error'))
+        <x-alert.alert-toast></x-alert.alert-toast>
     @endif
 @endsection
 @section('scripts')
