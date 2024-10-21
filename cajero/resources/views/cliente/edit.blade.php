@@ -6,7 +6,7 @@
      <!-- Contenido del formulario para editar cliente -->
      <form action="{{ route('cliente.update', $cliente->cod_cliente) }}" method="POST">
          @csrf
-         @method('PUT')
+         @method('PATCH')
 
          <!-- Campos del formulario -->
          <div class="row">
