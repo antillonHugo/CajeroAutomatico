@@ -102,7 +102,8 @@
              </div>
          </div>
          <div class="col-12">
-             <input type="submit" value="Actualizar" class="btn btn-primary w-100 py-2">
+             <input type="submit" value="Actualizar"
+                 class="bg-dark w-100 py-2 text-white bg-opacity-75 border-0 rounded">
          </div>
      </form>
  @endcomponent
